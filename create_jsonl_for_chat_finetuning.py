@@ -47,5 +47,6 @@ for _, row in df.iterrows(): #iterates through each row in the dataframe
         chat_format_pairs.append(template_msg) #appends the chat format pairs to the list
 
 with open("chat_format_pairs.json", "w") as f: #opens a file to write the chat format pairs
-    json.dump(chat_format_pairs, f, indent=2) #writes the chat format pairs to the file
-
+    for pair in chat_format_pairs:
+        f.write(json.dumps(pair, indent=2))
+        f.write("\n")
